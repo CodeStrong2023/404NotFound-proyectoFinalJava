@@ -66,5 +66,22 @@ public class MenuRestaurante{
         }
     }
         
-        
+      public static void modificarPedido(ArrayList<Pedido> pedidos) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("MODIFICAR UN PEDIDO:");
+        System.out.print("Ingrese el número de pedido que desea modificar: \n");
+        for (int i = 0; i < opcionesSeleccionadas.size(); i++) {
+            System.out.println((i + 1) + ") " + opcionesSeleccionadas.get(i));
+        }
+        int numeroPedidoAModificar = scanner.nextInt();
+
+        if (numeroPedidoAModificar >= 1 && numeroPedidoAModificar <= pedidos.size()) {
+            Pedido pedidoAModificar = pedidos.get(numeroPedidoAModificar - 1);
+            System.out.println("Pedido seleccionado: " + pedidoAModificar);
+            realizarModificacion(pedidos, numeroPedidoAModificar, pedidoAModificar);
+            guardarPedidosEnArchivo(pedidos,nombreUsuario, direccion, calcularNuevoTotal(pedidos));
+        } else {
+            System.out.println("Número de pedido no válido.");
+        }
+    }   
 }
