@@ -65,6 +65,17 @@ public class MenuRestaurante{
             }
         }
     }
+    // Datos del cliente.
+    public static void datos() {
+            Scanner entrada = new Scanner(System.in);
+            System.out.println("Ingrese su nombre: ");
+            nombreUsuario = entrada.nextLine();
+            System.out.println("Ingrese la dirección de su casa: ");
+            direccion = entrada.nextLine();
+            System.out.println("Ingrese los datos de la tarjeta: ");
+            String datosTarjeta = entrada.nextLine();
+            guardarInformacionlUsuario(nombreUsuario, direccion, datosTarjeta);
+    }
         
       public static void modificarPedido(ArrayList<Pedido> pedidos) {
         Scanner scanner = new Scanner(System.in);
@@ -83,5 +94,13 @@ public class MenuRestaurante{
         } else {
             System.out.println("Número de pedido no válido.");
         }
-    }   
+    }
+    // Calcular el nuevo total.
+    public static double calcularNuevoTotal(ArrayList<Pedido> pedidos) {
+            double nuevoTotal = 0;
+            for (Pedido pedido : pedidos) {
+                nuevoTotal += getPrecio();
+            }
+            return nuevoTotal;
+    }
 }
