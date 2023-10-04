@@ -76,6 +76,19 @@ public class MenuRestaurante{
             String datosTarjeta = entrada.nextLine();
             guardarInformacionlUsuario(nombreUsuario, direccion, datosTarjeta);
     }
+    
+     public static void eliminar(ArrayList<Pedido> pedidos){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese el número del pedido que desea borrar: ");
+                    int numeroPedidoABorrar = scanner.nextInt();
+                    if (numeroPedidoABorrar >= 1 && numeroPedidoABorrar <= pedidos.size()) {
+                        Pedido pedidoBorrado = pedidos.remove(numeroPedidoABorrar - 1);
+                        valorTotalCompra -= pedidoBorrado.getPrecio();
+                        System.out.println("Pedido eliminado: " + pedidoBorrado);
+                        guardarPedidosEnArchivo(pedidos, nombreUsuario, direccion, valorTotalCompra);
+                    } else {
+                        System.out.println("Número de pedido no válido.");
+                    }
         
       public static void modificarPedido(ArrayList<Pedido> pedidos) {
         Scanner scanner = new Scanner(System.in);
