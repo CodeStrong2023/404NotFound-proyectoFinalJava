@@ -1,4 +1,4 @@
-import java.io.*;
+﻿import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -115,5 +115,16 @@ public class MenuRestaurante{
                 nuevoTotal += getPrecio();
             }
             return nuevoTotal;
+    }
+ public static void lista(){
+        System.out.println("LISTA DE OPCIONES:");
+        System.out.println("1) Asado con ensalada - Precio: " + asado);
+        System.out.println("2) Milanesa con puré mixto - Precio: $" + milanesa);
+        System.out.println("3) Empanadas de carne y pollo - Precio: $" + empanadas);
+        System.out.println("4) Pizza comun o a la piedra - Precio: $" + pizza);
+        System.out.println("5) Pancho - Precio: $" + pancho);
+        System.out.println("6) Hamburguesa - Precio: $" + hamburguesa);
+        System.out.println("7) Bebida Coca-cola - Precio: $" + bebida);
+        System.out.print("Seleccione el número de la comida que desea: ");
     }
 }
