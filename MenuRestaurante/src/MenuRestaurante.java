@@ -108,6 +108,50 @@ public class MenuRestaurante{
             System.out.println("Número de pedido no válido.");
         }
     }
+      public static void realizarModificacion(ArrayList<Pedido> pedidos, int numeroPedidoAModificar, Pedido pedidoAModificar) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("1) Agregar condimento (10% de aumento)");
+        System.out.println("2) Agregar ingrediente (20% de aumento)");
+        System.out.println("3) Agregar condimento e ingrediente (30% de aumento)");
+        int opcionModificacion = scanner.nextInt();
+
+        switch (opcionModificacion) {
+            case 1:
+                System.out.print("Ingrese el condimento a agregar (sal, oregano, provenzal, curry, pimienta): ");
+                String condimento = scanner.next();
+                double nuevoPrecio1 = pedidoAModificar.getPrecio() * 1.10;
+                pedidoAModificar = new Pedido(pedidoAModificar.getComida() + " con " + condimento, nuevoPrecio1);
+                pedidos.set(numeroPedidoAModificar - 1, pedidoAModificar);
+                System.out.println("Pedido modificado: " + pedidoAModificar);
+                
+                break;
+
+            case 2:
+                System.out.print("Ingrese el ingrediente a agregar (lechuga, tomate, jamon, queso, palmito, sardina): ");
+                String ingrediente = scanner.next();
+                double nuevoPrecio2 = pedidoAModificar.getPrecio() * 1.20;
+                pedidoAModificar = new Pedido(pedidoAModificar.getComida() + " con " + ingrediente, nuevoPrecio2);
+                pedidos.set(numeroPedidoAModificar - 1, pedidoAModificar);
+                System.out.println("Pedido modificado: " + pedidoAModificar);
+                
+                break;
+
+            case 3:
+                System.out.print("Ingrese el condimento a agregar (sal, oregano, provenzal, curry, pimienta): ");
+                String nuevoCondimento = scanner.next();
+                System.out.print("Ingrese el ingrediente a agregar (lechuga, tomate, jamon, queso, palmito, sardina): ");
+                String nuevoIngrediente = scanner.next();
+                double nuevoPrecio3 = pedidoAModificar.getPrecio() * 1.30;
+                pedidoAModificar = new Pedido(pedidoAModificar.getComida() + " con " + nuevoCondimento + " y " + nuevoIngrediente, nuevoPrecio3);
+                pedidos.set(numeroPedidoAModificar - 1, pedidoAModificar);
+                System.out.println("Pedido modificado: " + pedidoAModificar);
+                
+                break;
+
+            default:
+                System.out.println("Opción no válida. No se realizó ninguna modificación.");
+                break;
+        }
     // Calcular el nuevo total.
     public static double calcularNuevoTotal(ArrayList<Pedido> pedidos) {
             double nuevoTotal = 0;
