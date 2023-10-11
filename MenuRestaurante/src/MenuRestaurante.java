@@ -152,6 +152,52 @@ public class MenuRestaurante{
                 System.out.println("Opción no válida. No se realizó ninguna modificación.");
                 break;
         }
+         public static void compra(ArrayList<Pedido> pedidos) {
+        Scanner scanner = new Scanner(System.in);
+        lista();
+        int numeroComida = scanner.nextInt();
+
+        if (numeroComida >= 1 && numeroComida <= 7) {
+            Pedido pedido = null;
+            switch (numeroComida) {
+                case 1:
+                    pedido = new Pedido("Asado con ensalada", asado);
+                    valorTotalCompra = valorTotalCompra + asado;
+                    opcionesSeleccionadas.add("Asado con ensalada");
+                    break;
+                case 2:
+                    pedido = new Pedido("Milanesa con puré mixto", milanesa);
+                    valorTotalCompra = valorTotalCompra + milanesa;
+                    opcionesSeleccionadas.add("Milanesa con pure mixto");
+                    break;
+                case 3:
+                    pedido = new Pedido("Empanadas de carne y pollo", empanadas);
+                    valorTotalCompra = valorTotalCompra + empanadas;
+                    opcionesSeleccionadas.add("empanadas de carne y pollo");
+                    break;
+                case 4:
+                    pedido = new Pedido("Pizza comun o a la piedra", pizza);
+                    valorTotalCompra = valorTotalCompra + pizza;
+                    opcionesSeleccionadas.add("Pizza comun o a la piedra");
+                    break;
+                case 5:
+                    pedido = new Pedido("Pancho", pancho);
+                    valorTotalCompra = valorTotalCompra + pancho;
+                    opcionesSeleccionadas.add("Pancho");
+                    break;
+                case 6:
+                    pedido = new Pedido("Hamburguesa", hamburguesa);
+                    valorTotalCompra = valorTotalCompra + hamburguesa;
+                    opcionesSeleccionadas.add("Hamburguesa");
+                    break;
+                case 7:
+                    pedido = new Pedido("Bebida Coca-cola", bebida);
+                    valorTotalCompra = valorTotalCompra + bebida;
+                    opcionesSeleccionadas.add("Bebida Coca-cola");
+                    break;
+            }
+
+        
     // Calcular el nuevo total.
     public static double calcularNuevoTotal(ArrayList<Pedido> pedidos) {
             double nuevoTotal = 0;
