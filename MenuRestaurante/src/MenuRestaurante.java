@@ -2,6 +2,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import java.io.File;
+
 public class MenuRestaurante{
     
     public static String nombreUsuario = "";
@@ -216,5 +218,50 @@ public class MenuRestaurante{
         System.out.println("6) Hamburguesa - Precio: $" + hamburguesa);
         System.out.println("7) Bebida Coca-cola - Precio: $" + bebida);
         System.out.print("Seleccione el número de la comida que desea: ");
+    }
+     private static void eliminarArchivoPedidos() {
+        String rutaEscritorio = System.getProperty("user");
+        String archivoPedidos = rutaEscritorio + "pedidos.txt";
+        File file = new File(archivoPedidos);
+
+        if (file.exists()) {
+            if (file.delete()) {
+                System.out.println("\u001B[32;2m"+"****************************************************");
+                System.out.println("*                                                  *");
+                System.out.println("\u001B[32;2m"+"* ARCHIVO 'pedidos.txt' SE HA ELIMINADO CORRECTAMENTE.*");
+                System.out.println("*                                                  *");
+                System.out.println("\u001B[32;2m"+"****************************************************");
+            } else {
+                System.out.println("");
+                System.out.println("\u001B[31m"+"ERROR AL ELIMINAR EL ARCHIVO 'pedidos.txt.");
+                System.out.println("");
+            }
+        } else {
+            System.out.println("");
+            System.out.println("\u001B[31m"+"EARCHIVO 'pedidos.txt' NO EXISTE.");
+            System.out.println("");
+        }
+    }
+     public static String logo() {
+        return "\u001B[34m"
+                + "                                       /$$    /$$       / $$$$$$$$        /$$     /$$ \n"
+                + "\u001B[34m" + "                                      | $$    |$$      | $$    | $$      | $$    | $$ \n"
+                + "\u001B[34m" + "                                      | $$    |$$      | $$    | $$      | $$    | $$ \n"
+                + "\u001B[34m" + "                                      | $$$$$$$$       | $$    | $$      | $$$$$$$$   \n"
+                + "\u001B[34m" + "                                      |____ __  $$     | $$    | $$      |____    $$  \n"
+                + "\u001B[34m" + "                                              | $$     | $$    | $$             | $$ \n"
+                + "\u001B[34m" + "                                              | $$     |  $$$$$$$$              | $$ \n"
+                + "\u001B[34m" + "                                              |__/     |________/               |__/ \n"
+                + "\u001B[34m" + ""
+                + "\u001B[34m" + "   /$$$$$$$$|       /$$$$$$$$       /$$$$$$$|    /$$$$$$$$|    /$$$$      /$$   /$$   /$$$$$$$$     /$$$$     /$$$  /$$|  /$$$$$$$$|\n"
+                + "\u001B[34m" + "  | $$    | $$|     |$$ ____/       |$$____/     |__ $$|___|  /$$  |$$|  | $$  | $$  | $$  | $$   /$$  | $$  | $$$ | $$|  |__ $$___|\n"
+                + "\u001B[34m" + "  | $$    | $$|     |$$             |$$             |$$|     |$$   |$$|  | $$  | $$  | $$  | $$  | $$  | $$  | $$ $  $$|     |$$|   \n"
+                + "\u001B[34m" + "  | $$ $$ $$|       |$$$$$$$$       |$$$$$$$|       |$$|     |$$$$$$$$|  | $$  | $$  | $$ $$ $$  | $$$$$$$$  | $$  $ $$|     |$$|   \n"
+                + "\u001B[34m" + "  | $|     |$$|     |$$ ____/         |___$$|       |$$|     |$$ _  $$|  | $$  | $$  | $$  $$    | $$ _  $$  | $$ | $$$|     |$$|   \n"
+                + "\u001B[34m" + "  | $|     | $|     |$$                   $$|       |$$|     |$$|  |$$|  | $$  | $$  | $$  | $$  | $$  | $$  | $$ |  $$|     |$$|   \n"
+                + "\u001B[34m" + "  | $|     | $|     |$$$$$$$$       /$$$$$$$|       |$$|     |$$|  |$$|  | $$$$$$$$  | $$  | $$  | $$  | $$  | $$ | $$$|     |$$|   \n"
+                + "\u001B[34m" + "  |__/     |__/     |________/     |________/       |__/     |__/  |__/  |________/  |__/  |__/  |__/  |__/  |__/ |___/      |__/   \n"
+                + " ";
+
     }
 }
