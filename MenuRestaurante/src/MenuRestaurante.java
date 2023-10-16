@@ -4,6 +4,11 @@ import java.util.Scanner;
 
 import java.io.File;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
 public class MenuRestaurante{
     
     public static String nombreUsuario = "";
@@ -265,3 +270,25 @@ public class MenuRestaurante{
 
     }
 }
+
+private static void guardarPedidosEnArchivo(ArrayList<Pedido> pedidos, String nombreUsuario, String direccion,double valorTotalCompra) {
+        int largoCompra = 0;
+        String rutaEscritorio = System.getProperty("user");
+        String archivoPedidos = rutaEscritorio + "pedidos.txt";
+        try (PrintWriter writer = new PrintWriter(new FileWriter(archivoPedidos))) {
+            writer.println("Nombre del cliente: " + nombreUsuario);
+            writer.println("Direccion del cliente: " + direccion);
+            writer.println("-------------------------------------");
+            writer.println("encargos: ");
+            for (Pedido pedido : pedidos) {
+                largoCompra += 1;
+                writer.println(largoCompra + " " + pedido.getComida() + ": " + pedido.getPrecio());
+                    
+            }
+            writer.println("-------------------------------------");
+            writer.println("Valor total de la compra: $" + valorTotalCompra);
+            writer.println();
+        } catch (IOException e) {
+            System.out.println("Error al guardar los pedidos.");
+        }
+    }
