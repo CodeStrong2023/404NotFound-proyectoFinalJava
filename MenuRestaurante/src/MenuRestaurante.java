@@ -9,6 +9,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 public class MenuRestaurante{
     
     public static String nombreUsuario = "";
@@ -245,6 +249,21 @@ public class MenuRestaurante{
             System.out.println("");
             System.out.println("\u001B[31m"+"EARCHIVO 'pedidos.txt' NO EXISTE.");
             System.out.println("");
+        }
+    }
+     private static void guardarInformacionUsuario(String nombre, String direccion, String tarjeta) {
+
+        String rutaEscritorio = System.getProperty("user");
+        String archivoPedidos = rutaEscritorio + "datos.txt";
+        try (PrintWriter writer = new PrintWriter(new FileWriter(archivoPedidos, true))) {
+            
+            writer.println("\n");
+            writer.println("Nombre del usuario: " + nombre);
+            writer.println("Dirección de vivienda: " + direccion);
+            writer.println("Datos de tarjeta: " + tarjeta);
+            writer.println("\n");
+        } catch (IOException e) {
+            System.out.println("Error al guardar la información del usuario.");
         }
     }
      public static String logo() {
