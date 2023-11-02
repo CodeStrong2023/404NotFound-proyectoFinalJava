@@ -33,14 +33,14 @@ public class MenuRestaurante {
         while (true) {
             System.out.println(logo());
 
-            System.out.println("MENU DEL RESTAURANTE");
-            System.out.println("1) Agregar nombre del usuario, dirección de vivienda, datos de tarjeta");
+            System.out.println("MENÚ DEL RESTAURANTE");
+            System.out.println("1) Agregar: Nombre del usuario - Dirección de vivienda - Datos de tarjeta");
             System.out.println("2) Seleccionar pedidos");
             System.out.println("3) Modificar pedidos (condimentos e ingredientes)");
             System.out.println("4) Ver pedidos cargados en el archivo");
             System.out.println("5) Borrar un pedido");
-            System.out.println("6) procesar compra");
-            System.out.println("7) salir");
+            System.out.println("6) Procesar compra");
+            System.out.println("7) Salir");
 
             int opcion = scanner.nextInt();
             scanner.nextLine();
@@ -64,7 +64,7 @@ public class MenuRestaurante {
                     eliminar(pedidos);
                     break;
                 case 6:
-                    System.out.println("compra realizada con exito");
+                    System.out.println("Compra realizada con exito!");
                     eliminarArchivoPedidos();
                     break;
                 case 7:
@@ -182,17 +182,17 @@ public class MenuRestaurante {
                     case 2:
                         pedido = new Pedido("Milanesa con puré mixto", milanesa);
                         valorTotalCompra = valorTotalCompra + milanesa;
-                        opcionesSeleccionadas.add("Milanesa con pure mixto");
+                        opcionesSeleccionadas.add("Milanesa con puré mixto");
                         break;
                     case 3:
                         pedido = new Pedido("Empanadas de carne y pollo", empanadas);
                         valorTotalCompra = valorTotalCompra + empanadas;
-                        opcionesSeleccionadas.add("empanadas de carne y pollo");
+                        opcionesSeleccionadas.add("Empanadas de carne y pollo");
                         break;
                     case 4:
-                        pedido = new Pedido("Pizza comun o a la piedra", pizza);
+                        pedido = new Pedido("Pizza común o a la piedra", pizza);
                         valorTotalCompra = valorTotalCompra + pizza;
-                        opcionesSeleccionadas.add("Pizza comun o a la piedra");
+                        opcionesSeleccionadas.add("Pizza común o a la piedra");
                         break;
                     case 5:
                         pedido = new Pedido("Pancho", pancho);
@@ -222,7 +222,7 @@ public class MenuRestaurante {
                 }
                 public static void lista () {
                     System.out.println("LISTA DE OPCIONES:");
-                    System.out.println("1) Asado con ensalada - Precio: " + asado);
+                    System.out.println("1) Asado con ensalada - Precio: $" + asado);
                     System.out.println("2) Milanesa con puré mixto - Precio: $" + milanesa);
                     System.out.println("3) Empanadas de carne y pollo - Precio: $" + empanadas);
                     System.out.println("4) Pizza comun o a la piedra - Precio: $" + pizza);
@@ -300,7 +300,7 @@ public class MenuRestaurante {
                     writer.println("Nombre del cliente: " + nombreUsuario);
                     writer.println("Direccion del cliente: " + direccion);
                     writer.println("-------------------------------------");
-                    writer.println("encargos: ");
+                    writer.println("Encargos: ");
                     for (Pedido pedido : pedidos) {
                         largoCompra += 1;
                         writer.println(largoCompra + " " + pedido.getComida() + ": " + pedido.getPrecio());
