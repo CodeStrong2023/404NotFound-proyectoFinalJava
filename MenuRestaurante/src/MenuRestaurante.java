@@ -12,7 +12,29 @@ import java.util.ArrayList;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+class Pedido {
 
+    private String comida;
+    private double precio;
+
+    public Pedido(String comida, double precio) {
+        this.comida = comida;
+        this.precio = precio;
+    }
+
+    public String getComida() {
+        return comida;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    @Override
+    public String toString() {
+        return comida + " - Precio: $" + precio;
+    }
+}
 public class MenuRestaurante {
 
     public static String nombreUsuario = "";
